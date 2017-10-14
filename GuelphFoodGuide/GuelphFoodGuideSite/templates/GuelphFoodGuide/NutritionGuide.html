@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>GFG Nutrition</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'GuelphFoodGuide/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'GuelphFoodGuide/css/table.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="justified-nav.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">Guelph Food Guide</h3>
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav text-md-center nav-justified w-100">
+              <li class="nav-item">
+                <a class="nav-link" href="/here">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="NutritionGuide.html">Nutrition guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Resources.html">Resources</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="FoodMap.html">Food Map</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="DietaryInfo.html">Dietary Info</a>
+              </li>
+<!--              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>-->
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h2>Welcome to the Nutrition Guide!</h2>
+        <p class="lead">Here you can find information about the reccomended macros, serving sizes, and other information
+        about the food you are eating here on campus!</p>
+        <p>
+          <h5>
+            MACRONUTRIENTS
+          </h5>
+          <h6>
+            RDA
+          </h6>
+          The RDA is defined as "the average daily intake level that is sufficient to meet the nutrient requirement of nearly all (97-98%) apparently healthy individuals in a particular life-stage and gender group" (IOM, 2005a). The following tables are the recommended calorie intake for different age groups accounting for the binary genders: (NOTE: This does not mean that we are against LGBTQ+, only that there is currently no data for a spectrum of genders)
+          <br>
+          <br>
+          <table>
+            <tr>
+              <td><h6>"Males"</h6></td>
+              <td>Sedentary</td>
+              <td>Slightly Active</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td><h6>18-30</h6></td>
+              <td>2500</td>
+              <td>2700</td>
+              <td>3000</td>
+            </tr>
+            <tr>
+              <td><h6>31-50</h6></td>
+              <td>2350</td>
+              <td>2600</td>
+              <td>2900</td>
+            </tr>
+            <tr>
+              <td><h6>51-70</h6></td>
+              <td>2150</td>
+              <td>2350</td>
+              <td>2650</td>
+            </tr>
+          </table>
+          <br>
+          <table>
+            <tr>
+              <td><h6>"Females"</h6></td>
+              <td>Sedentary</td>
+              <td>Slightly Active</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td><h6>18-30</h6></td>
+              <td>1900</td>
+              <td>2100</td>
+              <td>2350</td>
+            </tr>
+            <tr>
+              <td><h6>31-50</h6></td>
+              <td>1800</td>
+              <td>2000</td>
+              <td>2250</td>
+            </tr>
+            <tr>
+              <td><h6>51-70</h6></td>
+              <td>1650</td>
+              <td>1850</td>
+              <td>2100</td>
+            </tr>
+          </table>
+          <br>
+          <h6>
+            Proteins
+          </h6>
+          Proteins build and repair your muscles and tissues while regulating your body's daily processes! One gram of protein provides four calories. In a healthy, balanced diet, protein should contribute to 10-15% of daily calories.
+          <br>
+          <br>
+          Plant sources of protein include soybeans, quinoa, beans, lentils, soy products (e.g. tofu), and nuts
+          <br>
+          <br>
+          Animal food sources of protein include meat, poultry, eggs, seafood, and dairy products.
+          <br>
+          <br>
+          <h6>
+            Fats
+          </h6>
+          Fat insulates your body and organs, plays a role in your hormones, and provides needed acids in your body which it can't make itself! One gram of fat provides 9 calories - it is recommended that fat should contribute 20-30% of daily calories in a healthy diet.
+          <br>
+          <br>
+          Consuming large amounts of saturated fat can harm your body as well as increase your risk of Heart Attack or Stroke! Sources of saturated fat include meat, lard, and dairy products. Some examples of these include cheese, butter, sour cream, and milk.
+          <br>
+          <br>
+          Unsaturated fat, ie: "the good fat", has been linked to a reduced risk of cardiovascular desease. Unsaturated fat typically comes from plant oils, avacados, and nuts.
+          <br>
+          Of the two types: saturated and unsaturated, the majority of what you consume should be unsaturated.
+          <br>
+          <br>
+          <h6>
+            Carbohydrates
+          </h6>
+          Carboydrates are your body's main source of energy! Each gram of carbohydrates provides four calories. It is recommended that 50-65% of your daily intake comes from these sources.
+          <br>
+          <br>
+          Simple carbohydrates - also called sugars - usually have names ending in "-use" and tend to taste sweet. There are currently no formal guidelines for sugars in the diet, but nutrition experts agree it is best to restrict "added" sugars. Products with added sugars include processed foods, candy, and soft drinks.
+          <br>
+          Complex carbohydrates - also called starches - can stabilize your blood sugar. Sources include grain products (bread, cereal, rice, and pasta) as well as vegetables (potatoes and carrots) and legumes.
+        </p>
+        <img src="{% static '/servingsize.jpg' %}" alt="serving size" height=150px left=50%>
+      </div>
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; Company 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
