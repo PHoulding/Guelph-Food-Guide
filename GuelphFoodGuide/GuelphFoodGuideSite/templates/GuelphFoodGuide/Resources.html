@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <!--<link rel="icon" href="../../../../favicon.ico">-->
 
     <title>GFG Resources</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'GuelphFoodGuide/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'GuelphFoodGuide/css/table.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Custom styles for this template -->
   </head>
@@ -55,60 +56,86 @@
         <h2>Welcome to the resources page!</h2>
         <p class="lead">Here you will find a list of all the on campus resources provided to students and staff, as well as their location and links to their menus.</p>
         <p>
-          <table class="table">
-            <tr>
-              <td><h6>Restaurant Name</h6></td>
-              <td><h6>Restaurant Location</h6></td>
-              <td><h6>Restaurant Menu</h6></td>
-              <td><h6>Dietary Needs</h6></td>
-              <td><h6>Price Point</h6></td>
-            </tr>
-            <tr>
-              <!-- Add button to expand/collapse here-->
-            </tr>
-            {% for resource in resources %}
-            <tr>
-              {% if resource.onOrOffCampus == "on" %}
-                <td>{{resource.restaurantName}}</td>
-                <td>{{resource.restaurantLocation}}</td>
-                <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
-                <td>
-                  {% if resource.dietaryRestrictions == "n/a" %}
-                    n/a
-                    {% else %}
-                    {% for i in resource.dietaryRestrictions %}
-                      {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
-                      <img src="{% static image_name %}" height=35px left=50%>
-                      {% endwith %}
-                    {% endfor %}
-                  {% endif %}
+        <div class="container1">
+          <div class="header1"><span>>Expand On-Campus Resources</span>
+
+          </div>
+          <div class="content1">
+            <table class="table">
+              <tr>
+                <td><h6>Restaurant Name</h6></td>
+                <td><h6>Restaurant Location</h6></td>
+                <td><h6>Restaurant Menu</h6></td>
+                <td><h6>Dietary Needs</h6></td>
+                <td><h6>Price Point</h6></td>
+              </tr>
+              {% for resource in resources %}
+              <tr>
+                {% if resource.onOrOffCampus == "on" %}
+                  <td>{{resource.restaurantName}}</td>
+                  <td>{{resource.restaurantLocation}}</td>
+                  <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
+                  <td>
+                    {% if resource.dietaryRestrictions == "n/a" %}
+                      n/a
+                      {% else %}
+                      {% for i in resource.dietaryRestrictions %}
+                        {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
+                        <img src="{% static image_name %}" height=35px left=50%>
+                        {% endwith %}
+                      {% endfor %}
+                    {% endif %}
+                  </td>
+                  <td>
+                    {{resource.pricePoint}}
+                  </td>
+                {% endif %}
                 </td>
-                <td>
-                  {{resource.pricePoint}}
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+        <div class="container1">
+          <div class="header1"><span>>Expand Off-Campus Resources</span>
+
+          </div>
+          <div class="content1">
+            <table class="table">
+              <tr>
+                <td><h6>Restaurant Name</h6></td>
+                <td><h6>Restaurant Location</h6></td>
+                <td><h6>Restaurant Menu</h6></td>
+                <td><h6>Dietary Needs</h6></td>
+                <td><h6>Price Point</h6></td>
+              </tr>
+              {% for resource in resources %}
+              <tr>
+                {% if resource.onOrOffCampus == "off" %}
+                  <td>{{resource.restaurantName}}</td>
+                  <td>{{resource.restaurantLocation}}</td>
+                  <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
+                  <td>
+                    {% if resource.dietaryRestrictions == "n/a" %}
+                      n/a
+                      {% else %}
+                      {% for i in resource.dietaryRestrictions %}
+                        {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
+                        <img src="{% static image_name %}" height=35px left=50%>
+                        {% endwith %}
+                      {% endfor %}
+                    {% endif %}
+                  </td>
+                  <td>
+                    {{resource.pricePoint}}
+                  </td>
+                {% endif %}
                 </td>
-              {% else %}
-                <td>{{resource.restaurantName}}</td>
-                <td>{{resource.restaurantLocation}}</td>
-                <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
-                <td>
-                  {% if resource.dietaryRestrictions == "n/a" %}
-                    n/a
-                    {% else %}
-                    {% for i in resource.dietaryRestrictions %}
-                      {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
-                      <img src="{% static image_name %}" height=35px left=50%>
-                      {% endwith %}
-                    {% endfor %}
-                  {% endif %}
-                </td>
-                <td>
-                  {{resource.pricePoint}}
-                </td>
-              {% endif %}
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
       </div>
       <!-- Site footer -->
       <footer class="footer">
@@ -117,3 +144,24 @@
     </div> <!-- /container -->
   </body>
 </html>
+<script>
+$(".header1").click(function () {
+    $header1 = $(this);
+    //getting the next element
+    $content1 = $header1.next();
+    console.log($content1);
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content1.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $header1.text(function () {
+            //change text based on condition
+            if($header1.text().includes('On-Campus')) {
+              return $content1.is(":visible") ? ">Collapse On-Campus Resources" : ">Expand On-Campus Resources";
+            }
+            return $content1.is(":visible") ? ">Collapse Off-Campus Resources" : ">Expand Off-Campus Resources";
+        });
+    });
+});
+</script>
+

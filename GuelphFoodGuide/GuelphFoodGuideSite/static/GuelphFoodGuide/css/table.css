@@ -2,6 +2,20 @@
 	border-collapse: separate;
 	border-spacing: -200px 0px;
 }
-td {
-	
+.container1 {
+	width:100%;
+	border:1px solid #d3d3d3;
+}
+.container1 div {
+	width:100%;
+}
+.container1 .header1 {
+	background-color: #d3d3d3;
+	padding: 2px;
+	cursor: pointer;
+	font-weight: bold;
+}
+.container1 .content1 {
+	display:none;
+	padding:5px;
 }
