@@ -17,6 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 
 urlpatterns = [
+#    url(r'^$','guelphFoodGuide.urls'),
     url(r'^admin/', admin.site.urls),
-    url(r'^here/',include('GuelphFoodGuideSite.urls')),
+    url(r'^',include('GuelphFoodGuideSite.urls')),
 ]

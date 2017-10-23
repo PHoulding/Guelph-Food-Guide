@@ -31,7 +31,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav text-md-center nav-justified w-100">
               <li class="nav-item">
-                <a class="nav-link" href="/here">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="../">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="NutritionGuide.html">Nutrition guide</a>
@@ -63,24 +63,48 @@
               <td><h6>Dietary Needs</h6></td>
               <td><h6>Price Point</h6></td>
             </tr>
+            <tr>
+              <!-- Add button to expand/collapse here-->
+            </tr>
             {% for resource in resources %}
             <tr>
-              <td>{{resource.restaurantName}}</td>
-              <td>{{resource.restaurantLocation}}</td>
-              <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
-              <td>
-                {% if resource.dietaryRestrictions == "n/a" %}
-                  n/a
-                {% else %}
-                  {% for i in resource.dietaryRestrictions %}
-                    {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
-                    <img src="{% static image_name %}" height=35px left=50%>
-                    {% endwith %}
-                  {% endfor %}
-                {% endif %}
-              </td>
-              <td>
-                {{resource.pricePoint}}
+              {% if resource.onOrOffCampus == "on" %}
+                <td>{{resource.restaurantName}}</td>
+                <td>{{resource.restaurantLocation}}</td>
+                <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
+                <td>
+                  {% if resource.dietaryRestrictions == "n/a" %}
+                    n/a
+                    {% else %}
+                    {% for i in resource.dietaryRestrictions %}
+                      {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
+                      <img src="{% static image_name %}" height=35px left=50%>
+                      {% endwith %}
+                    {% endfor %}
+                  {% endif %}
+                </td>
+                <td>
+                  {{resource.pricePoint}}
+                </td>
+              {% else %}
+                <td>{{resource.restaurantName}}</td>
+                <td>{{resource.restaurantLocation}}</td>
+                <td><a href="{{resource.restaurantMenu}}">Menu</a></td>
+                <td>
+                  {% if resource.dietaryRestrictions == "n/a" %}
+                    n/a
+                    {% else %}
+                    {% for i in resource.dietaryRestrictions %}
+                      {% with '/GuelphFoodGuide/'|add:i|add:'.png' as image_name %}
+                      <img src="{% static image_name %}" height=35px left=50%>
+                      {% endwith %}
+                    {% endfor %}
+                  {% endif %}
+                </td>
+                <td>
+                  {{resource.pricePoint}}
+                </td>
+              {% endif %}
               </td>
             </tr>
             {% endfor %}
