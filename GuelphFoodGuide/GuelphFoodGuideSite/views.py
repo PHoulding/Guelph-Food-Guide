@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from . import models
+import re
 
 # Create your views here.
 def index(request):
@@ -23,4 +24,12 @@ def foodMap(request):
 
 def dietaryInfo(request):
 	context={}
-	return render(request, 'GuelphFoodGuide/DietaryInfo.html')
+	return render(request, 'GuelphFoodGuide/DietaryInfo.html', context)
+
+def menu(request, menuName=None):
+	instance = get_object_or_404(models.Resource, restaurantName=menuName)
+	context={
+		"restaurantName":instance.restaurantName,
+		"menu":instance.restaurantMenu
+	}
+	return render(request, 'GuelphFoodGuide/menu.html', context)

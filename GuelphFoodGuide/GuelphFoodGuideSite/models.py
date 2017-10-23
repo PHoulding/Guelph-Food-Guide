@@ -9,7 +9,7 @@ class Resource(models.Model):
 	on_off = (('on','on'),('off','off'))
 	restaurantName = models.CharField(max_length = 50)
 	restaurantLocation = models.CharField(max_length = 50)
-	restaurantMenu = models.URLField(max_length = 500)
+	restaurantMenu = models.TextField(max_length = 500, default="abc")
 	dietaryRestrictions = models.CharField(max_length = 50, default="n/a")
 	pricePoint = models.CharField(max_length=3, choices=price_point, default="$$")
 	onOrOffCampus = models.CharField(max_length=3, choices=on_off, default="off")
