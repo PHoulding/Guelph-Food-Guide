@@ -28,8 +28,14 @@ def dietaryInfo(request):
 
 def menu(request, menuName=None):
 	instance = get_object_or_404(models.Resource, restaurantName=menuName)
-	context={
-		"restaurantName":instance.restaurantName,
-		"menu":instance.restaurantMenu
-	}
-	return render(request, 'GuelphFoodGuide/menu.html', context)
+	temp = instance.restaurantMenu
+	temp = temp.split("\r\n")
+	menuItems=[]
+	for line in temp:
+		menuItems.append(line)
+	#context={
+	#	"restaurantName":instance.restaurantName,
+	#	"menu":instance.restaurantMenu
+
+	#}
+	return render(request, 'GuelphFoodGuide/menu.html', {'restaurantName':instance.restaurantName,'menuItems':menuItems})
