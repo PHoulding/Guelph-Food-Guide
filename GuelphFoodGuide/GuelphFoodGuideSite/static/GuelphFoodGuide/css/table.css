@@ -19,3 +19,11 @@
 	display:none;
 	padding:5px;
 }
+.backButton {
+	background-color: #d3d3d3;
+	border:1px solid #d3d3d3;
+	cursor: pointer;
+	display:block;
+	top:-30px;
+	position: relative;
+}
