@@ -10,10 +10,11 @@
 	width:100%;
 }
 .container1 .header1 {
-	background-color: #d3d3d3;
+	background-color: #54BE71;
+	border-color: #54BE71;
+	color: rgba(255,255,255,1);
 	padding: 2px;
 	cursor: pointer;
-	font-weight: bold;
 }
 .container1 .content1 {
 	display:none;
